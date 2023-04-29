@@ -1,6 +1,24 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+
+
+  const [inputs, setInputs] = useState({});
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(inputs);
+  }
+
+
+
   return (
     <>
       <div className="container-scroller">
@@ -20,8 +38,10 @@ export default function Login() {
                       <input
                         type="email"
                         className="form-control form-control-lg"
-                        id="exampleInputEmail1"
+                        name="customer_email"
                         placeholder="Email"
+                        value={inputs.customer_email || ""} 
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="form-group">
@@ -30,6 +50,9 @@ export default function Login() {
                         className="form-control form-control-lg"
                         id="exampleInputPassword1"
                         placeholder="Password"
+                        name="customer_password"
+                        value={inputs.customer_password || ""} 
+                        onChange={handleChange}
                       />
                     </div>
                     <div className="mt-3">
