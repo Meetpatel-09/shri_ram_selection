@@ -16,8 +16,6 @@ export default function Register() {
     alert(inputs);
   }
 
-
-
   return (
     <>
       <div className="container-scroller">
