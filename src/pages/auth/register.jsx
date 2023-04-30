@@ -29,7 +29,7 @@ export default function Register() {
                   <h6 class="font-weight-light">
                     Signing up is easy. It only takes a few steps
                   </h6>
-                  <form className="form-sample">
+                  <form onSubmit={handleSubmit} className="form-sample">
                     <p className="card-description">Personal info</p>
                     <div className="row">
                       <div className="col-md-6">
@@ -38,7 +38,14 @@ export default function Register() {
                             First Name
                           </label>
                           <div className="col-sm-9">
-                            <input type="text" placeholder="First Name" className="form-control" />
+                            <input 
+                            type="text" 
+                            placeholder="First Name" 
+                            className="form-control" 
+                            name="first_name"
+                            value={inputs.first_name || ""}
+                            onChange={handleChange}
+                            />
                           </div>
                         </div>
                       </div>
@@ -48,7 +55,14 @@ export default function Register() {
                             Last Name
                           </label>
                           <div className="col-sm-9">
-                            <input type="text" placeholder="Last Name" className="form-control" />
+                            <input 
+                            type="text" 
+                            placeholder="Last Name" 
+                            className="form-control" 
+                            name="last_name"
+                            value={inputs.last_name || ""}
+                            onChange={handleChange}
+                            />
                           </div>
                         </div>
                       </div>
@@ -94,7 +108,10 @@ export default function Register() {
                               type="tel"
                               className="form-control"
                               placeholder="Mobile Number"
-                              required
+                              name="mobile_1"
+                              value={inputs.mobile_1 || ""}
+                              onChange={handleChange}
+
                             />
                           </div>
                         </div>
@@ -110,6 +127,9 @@ export default function Register() {
                               className="form-control"
                               placeholder="Alternate Mobile Number"
                               required
+                              name="mobile_2"
+                              value={inputs.mobile_2 || ""}
+                              onChange={handleChange}
                             />
                           </div>
                         </div>

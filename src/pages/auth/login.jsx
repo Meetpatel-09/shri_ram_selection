@@ -33,7 +33,7 @@ export default function Login() {
                   <h4>Hello! </h4>
                   <h4>Welcome back to Shri Ram Selection</h4>
                   <h6 className="font-weight-light">Sign in to continue.</h6>
-                  <form className="pt-3">
+                  <form onSubmit={handleSubmit} className="pt-3">
                     <div className="form-group">
                       <input
                         type="email"

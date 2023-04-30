@@ -1,6 +1,20 @@
 
 
 const Category = () => {
+
+  const [inputs, setInputs] = useState({});
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
+    setInputs(values => ({...values, [name]: value}))
+  }
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    alert(inputs);
+  }
+
      return (
           <>
            <div class="content-wrapper">
@@ -70,11 +84,22 @@ const Category = () => {
           <form class="forms-sample">
             <div class="form-group">
               <label for="exampleInputUsername1">Category Title</label>
-              <input type="text" class="form-control" id="exampleInputUsername1" placeholder="Username">
+              <input 
+              type="text" 
+              class="form-control" 
+              id="exampleInputUsername1" 
+              placeholder="Username"
+              name="category_tittle"
+              value={inputs.category_tittle || ""}
+              onChange={handleChange}
+               />
             </div>
           
            
-            <button type="submit" class="btn btn-primary me-2">Submit</button>
+            <button 
+            type="submit" 
+            class="btn btn-primary me-2"
+            >Submit</button>
             <button class="btn btn-light">Cancel</button>
           </form>
         </div>
