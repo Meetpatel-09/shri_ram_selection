@@ -14,6 +14,7 @@ import CustomerHome from './pages/customers/home/home';
 import Category from './pages/admin/category/categories/Category';
 import AdminLayout from './pages/admin/admin_layout';
 import AdminHome from './pages/admin/admin_home/admin_home';
+import ManageCustomers from './pages/admin/customers/ManageCustomers';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route index element={<AdminHome />} />
           {/* <Route index element={<Category />} /> */}
           <Route path='category' element={<Category />} />
+          <Route path='customer' element={<ManageCustomers />} />
           {/* <Route index element={} /> */}
         </Route>
         <Route path="/employee_home" element={<EmployeeHome />} />

@@ -468,7 +468,7 @@ const AdminLayout = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">
+          <Link className="nav-link" to="customer">
             <i className="mdi mdi-account-multiple menu-icon"></i>
             <span className="menu-title">Customer</span>
           </Link>
