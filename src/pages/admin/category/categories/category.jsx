@@ -1,115 +1,211 @@
-
+import { useEffect, useState } from "react";
+import useFetch from "./useFetch";
+import { Link } from "react-router-dom";
 
 const Category = () => {
+  // const [data] = useFetch("http://127.0.0.1:5000/category");
+  const [data, setData] = useState(null);
+  const [dataAdded, setDataAdded] = useState(0);
 
   const [inputs, setInputs] = useState({});
 
+  console.log(data);
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setInputs(values => ({...values, [name]: value}))
-  }
+    setInputs((values) => ({ ...values, [name]: value }));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert(inputs);
+    // alert(inputs.category_tittle);
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    var raw = JSON.stringify({
+      category_tittle: inputs.category_tittle,
+      remark: "",
+    });
+
+    var requestOptions = {
+      method: "POST",
+      headers: myHeaders,
+      body: raw,
+      redirect: "follow",
+    };
+
+    fetch("http://127.0.0.1:5000/category", requestOptions)
+      .then((response) => response.text())
+      .then((result) => {
+        console.log(result)
+        alert("Category Added.")
+        setInputs({})
+        setDataAdded(dataAdded + 1)
+      })
+      .catch((error) => console.log("error", error));
+  };
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:5000/category")
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("data");
+        console.log(data[0]);
+        setData(data);
+        // if (data["status"] === 201) {
+        // }
+      });
+  }, [dataAdded]);
+
+
+  const deleteCategory = (id) => {
+    // alert(id);
+
+
+    console.log(id);
+    var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+    
+    var raw = JSON.stringify({
+      "category_id": id
+    });
+    
+    var requestOptions = {
+      method: 'DELETE',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+    
+    fetch("http://127.0.0.1:5000/category", requestOptions)
+      .then(response => response.text())
+      // .then(result => console.log(result))
+      .then((result) => {
+        console.log(result)
+        alert("Category Deleted.")
+        setInputs({})
+        setDataAdded(dataAdded - 1)
+      })
+      .catch(error => console.log('error', error));
+
   }
 
-     return (
-          <>
-           <div class="content-wrapper">
 
-<div class="row">
-<div class="col-lg-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Basic Table</h4>
-          <p class="card-description">
-            Add class <code>.table</code>
-          </p>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>Profile</th>
-                  <th>VatNo.</th>
-                  <th>Created</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Jacob</td>
-                  <td>53275531</td>
-                  <td>12 May 2017</td>
-                  <td><label class="badge badge-danger">Pending</label></td>
-                </tr>
-                <tr>
-                  <td>Messsy</td>
-                  <td>53275532</td>
-                  <td>15 May 2017</td>
-                  <td><label class="badge badge-warning">In progress</label></td>
-                </tr>
-                <tr>
-                  <td>John</td>
-                  <td>53275533</td>
-                  <td>14 May 2017</td>
-                  <td><label class="badge badge-info">Fixed</label></td>
-                </tr>
-                <tr>
-                  <td>Peter</td>
-                  <td>53275534</td>
-                  <td>16 May 2017</td>
-                  <td><label class="badge badge-success">Completed</label></td>
-                </tr>
-                <tr>
-                  <td>Dave</td>
-                  <td>53275535</td>
-                  <td>20 May 2017</td>
-                  <td><label class="badge badge-warning">In progress</label></td>
-                </tr>
-              </tbody>
-            </table>
+  return (
+    <>
+      <div class="content-wrapper">
+        <div class="row">
+          <div class="col-lg-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Categories</h4>
+                <p class="card-description">
+                  View All Categories
+                </p>
+                <div class="table-responsive">
+                  <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Category</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {data &&
+                        data.map((item, index) => {
+                          return (
+                            <tr>
+                              <td>{index + 1}</td>
+                              <td>{item.category_tittle}</td>
+                              <td>
+                                <i role="button" className="cursor-pointer text-warning mdi mdi-border-color">
+                                  {" "}
+                                </i>
+                              </td>
+                              <td>
+                                <i 
+                                role="button" 
+                                onClick={() => deleteCategory(item.category_id)}
+                                className="text-danger mdi mdi-bitbucket">
+                                  {" "}
+                                </i>
+                                
+                              </td>
+                            </tr>
+                          );
+                        })}
+
+                      {/* <tr>
+                        <td>Messsy</td>
+                        <td>53275532</td>
+                        <td>15 May 2017</td>
+                        <td>
+                          <label class="badge badge-warning">In progress</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>John</td>
+                        <td>53275533</td>
+                        <td>14 May 2017</td>
+                        <td>
+                          <label class="badge badge-info">Fixed</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Peter</td>
+                        <td>53275534</td>
+                        <td>16 May 2017</td>
+                        <td>
+                          <label class="badge badge-success">Completed</label>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Dave</td>
+                        <td>53275535</td>
+                        <td>20 May 2017</td>
+                        <td>
+                          <label class="badge badge-warning">In progress</label>
+                        </td>
+                      </tr> */}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Category</h4>
+                <p class="card-description">Add New Category</p>
+                <form class="forms-sample" onSubmit={handleSubmit}>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">Category Title</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="exampleInputUsername1"
+                      placeholder="Username"
+                      name="category_tittle"
+                      value={inputs.category_tittle || ""}
+                      onChange={handleChange}
+                    />
+                  </div>
+
+                  <button type="submit" class="btn btn-primary me-2">
+                    Submit
+                  </button>
+                  {/* <button type="reset" class="btn btn-warning">Reset</button> */}
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-6 grid-margin stretch-card">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title">Category</h4>
-          <p class="card-description">
-            Add New Category
-          </p>
-          <form class="forms-sample">
-            <div class="form-group">
-              <label for="exampleInputUsername1">Category Title</label>
-              <input 
-              type="text" 
-              class="form-control" 
-              id="exampleInputUsername1" 
-              placeholder="Username"
-              name="category_tittle"
-              value={inputs.category_tittle || ""}
-              onChange={handleChange}
-               />
-            </div>
-          
-           
-            <button 
-            type="submit" 
-            class="btn btn-primary me-2"
-            >Submit</button>
-            <button class="btn btn-light">Cancel</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  </div>
-          </>
-     );
-}
+    </>
+  );
+};
 
 export default Category;

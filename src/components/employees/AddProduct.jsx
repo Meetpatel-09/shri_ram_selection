@@ -3,7 +3,7 @@
 const AddProduct = () => {
      return (
           <>
-            <div class="col-12 grid-margin stretch-card">
+            {/* <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Product</h4>
@@ -53,7 +53,7 @@ const AddProduct = () => {
                   </form>
                 </div>
               </div>
-            </div>
+            </div> */}
           </>
      );
 }

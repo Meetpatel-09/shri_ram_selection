@@ -8,9 +8,12 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 // import ViewUsers from './pages/ViewUsers';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
-import AdminHome from './pages/admin/admin_home/admin_home';
+// import AdminHome from './pages/admin/admin_home/admin_home';
 import EmployeeHome from './pages/employee/employee_home';
 import CustomerHome from './pages/customers/home/home';
+import Category from './pages/admin/category/categories/Category';
+import AdminLayout from './pages/admin/admin_layout';
+import AdminHome from './pages/admin/admin_home/admin_home';
 
 function App() {
   return (
@@ -18,10 +21,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/admin/" element={<AdminLayout />} > 
+        <Route path="/admin/" element={<AdminLayout />} >
           <Route index element={<AdminHome />} />
-          <Route path='/category' element={} />
-          <Route index element={} />
+          {/* <Route index element={<Category />} /> */}
+          <Route path='category' element={<Category />} />
+          {/* <Route index element={} /> */}
         </Route>
         <Route path="/employee_home" element={<EmployeeHome />} />
         <Route path="/home" element={<CustomerHome />} />
