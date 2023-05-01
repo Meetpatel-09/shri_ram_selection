@@ -17,29 +17,6 @@ const ManageCustomers = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="d-flex justify-content-between align-items-end flex-wrap">
-              <button
-                type="button"
-                className="btn btn-light bg-white btn-icon me-3 d-none d-md-block "
-              >
-                <i className="mdi mdi-download text-muted"></i>
-              </button>
-              <button
-                type="button"
-                className="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0"
-              >
-                <i className="mdi mdi-clock-outline text-muted"></i>
-              </button>
-              <button
-                type="button"
-                className="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0"
-              >
-                <i className="mdi mdi-plus text-muted"></i>
-              </button>
-              <button className="btn btn-primary mt-2 mt-xl-0">
-                Generate report
-              </button>
-            </div> */}
           </div>
         </div>
       </div>
@@ -70,63 +47,6 @@ const ManageCustomers = () => {
                       <td>5</td>
                       <td>₹2,245</td>
                     </tr>
-                    {/*
-                        <tr>
-                            <td>Alvin Fisher</td>
-                            <td>Ui design completed</td>
-                            <td>East Mayra</td>
-                            <td>$23230</td>
-                            <td>18 Jul 2018</td>
-                            <td>$83127</td>
-                        </tr>
-                        <tr>
-                            <td>Emily Cunningham</td>
-                            <td>support</td>
-                            <td>Makennaton</td>
-                            <td>$939</td>
-                            <td>16 Jul 2018</td>
-                            <td>$29177</td>
-                        </tr>
-                        <tr>
-                            <td>Minnie Farmer</td>
-                            <td>support</td>
-                            <td>Agustinaborough</td>
-                            <td>$30</td>
-                            <td>30 Apr 2018</td>
-                            <td>$44617</td>
-                        </tr>
-                        <tr>
-                            <td>Betty Hunt</td>
-                            <td>Ui design not completed</td>
-                            <td>Lake Sandrafort</td>
-                            <td>$571</td>
-                            <td>25 Jun 2018</td>
-                            <td>$78952</td>
-                        </tr>
-                        <tr>
-                            <td>Myrtie Lambert</td>
-                            <td>Ui design completed</td>
-                            <td>Cassinbury</td>
-                            <td>$36</td>
-                            <td>05 Nov 2018</td>
-                            <td>$36422</td>
-                        </tr>
-                        <tr>
-                            <td>Jacob Kennedy</td>
-                            <td>New project</td>
-                            <td>Cletaborough</td>
-                            <td>$314</td>
-                            <td>12 Jul 2018</td>
-                            <td>$34167</td>
-                        </tr>
-                        <tr>
-                            <td>Ernest Wade</td>
-                            <td>Levelled up</td>
-                            <td>West Fidelmouth</td>
-                            <td>$484</td>
-                            <td>08 Sep 2018</td>
-                            <td>$50862</td>
-                        </tr> */}
                   </tbody>
                 </table>
               </div>

@@ -93,8 +93,8 @@ const Category = () => {
 
   return (
     <>
-      <div class="content-wrapper">
-        
+      <div className="content-wrapper">
+
       <div className="row">
         <div className="col-md-12 grid-margin">
           <div className="d-flex justify-content-between flex-wrap">
@@ -137,16 +137,16 @@ const Category = () => {
           </div>
         </div>
       </div>
-        <div class="row">
-          <div class="col-lg-6 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Categories</h4>
-                <p class="card-description">
+        <div className="row">
+          <div className="col-lg-6 grid-margin stretch-card">
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">Categories</h4>
+                <p className="card-description">
                   View All Categories
                 </p>
-                <div class="table-responsive">
-                  <table class="table table-hover">
+                <div className="table-responsive">
+                  <table className="table table-hover">
                     <thead>
                       <tr>
                         <th>#</th>
@@ -180,55 +180,23 @@ const Category = () => {
                           );
                         })}
 
-                      {/* <tr>
-                        <td>Messsy</td>
-                        <td>53275532</td>
-                        <td>15 May 2017</td>
-                        <td>
-                          <label class="badge badge-warning">In progress</label>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>John</td>
-                        <td>53275533</td>
-                        <td>14 May 2017</td>
-                        <td>
-                          <label class="badge badge-info">Fixed</label>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Peter</td>
-                        <td>53275534</td>
-                        <td>16 May 2017</td>
-                        <td>
-                          <label class="badge badge-success">Completed</label>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Dave</td>
-                        <td>53275535</td>
-                        <td>20 May 2017</td>
-                        <td>
-                          <label class="badge badge-warning">In progress</label>
-                        </td>
-                      </tr> */}
                     </tbody>
                   </table>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-6 grid-margin stretch-card">
-            <div class="card">
-              <div class="card-body">
-                <h4 class="card-title">Category</h4>
-                <p class="card-description">Add New Category</p>
-                <form class="forms-sample" onSubmit={handleSubmit}>
-                  <div class="form-group">
+          <div className="col-md-6 grid-margin stretch-card">
+            <div className="card">
+              <div className="card-body">
+                <h4 className="card-title">Category</h4>
+                <p className="card-description">Add New Category</p>
+                <form className="forms-sample" onSubmit={handleSubmit}>
+                  <div className="form-group">
                     <label for="exampleInputUsername1">Category Title</label>
                     <input
                       type="text"
-                      class="form-control"
+                      className="form-control"
                       id="exampleInputUsername1"
                       placeholder="Username"
                       name="category_tittle"
@@ -237,10 +205,10 @@ const Category = () => {
                     />
                   </div>
 
-                  <button type="submit" class="btn btn-primary me-2">
+                  <button type="submit" className="btn btn-primary me-2">
                     Submit
                   </button>
-                  {/* <button type="reset" class="btn btn-warning">Reset</button> */}
+                  {/* <button type="reset" className="btn btn-warning">Reset</button> */}
                 </form>
               </div>
             </div>

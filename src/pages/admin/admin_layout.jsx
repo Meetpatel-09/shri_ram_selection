@@ -444,7 +444,7 @@ const AdminLayout = () => {
           </div>
         </li> */}
         <li className="nav-item">
-          <Link className="nav-link" to="#">
+          <Link className="nav-link" to="banner">
             <i className="mdi mdi-bulletin-board menu-icon"></i>
             <span className="menu-title">Banner</span>
           </Link>
@@ -456,13 +456,13 @@ const AdminLayout = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">
+          <Link className="nav-link" to="product">
             <i className="mdi mdi-basket menu-icon"></i>
             <span className="menu-title">Product</span>
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">
+          <Link className="nav-link" to="employee">
             <i className="mdi mdi-account menu-icon"></i>
             <span className="menu-title">Employee</span>
           </Link>
@@ -474,13 +474,13 @@ const AdminLayout = () => {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">
+          <Link className="nav-link" to="review">
             <i className="mdi mdi-library menu-icon"></i>
             <span className="menu-title">Review</span>
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="#">
+          <Link className="nav-link" to="contact">
             <i className="mdi mdi-link menu-icon"></i>
             <span className="menu-title">Contact</span>
           </Link>

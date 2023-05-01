@@ -15,6 +15,11 @@ import Category from './pages/admin/category/categories/Category';
 import AdminLayout from './pages/admin/admin_layout';
 import AdminHome from './pages/admin/admin_home/admin_home';
 import ManageCustomers from './pages/admin/customers/ManageCustomers';
+import ManageEmployee from './pages/admin/employee/manage_employee';
+import ManageProduct from './pages/admin/products/manage_product';
+import ManageReview from './pages/admin/review/ManageReviews';
+import ManageBanner from './pages/admin/banner/ManageBanners';
+import ManageContact from './pages/admin/contact/ManageContacts';
 
 function App() {
   return (
@@ -24,10 +29,13 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/admin/" element={<AdminLayout />} >
           <Route index element={<AdminHome />} />
-          {/* <Route index element={<Category />} /> */}
+          <Route path='banner' element={<ManageBanner />} />
           <Route path='category' element={<Category />} />
           <Route path='customer' element={<ManageCustomers />} />
-          {/* <Route index element={} /> */}
+          <Route path='employee' element={<ManageEmployee />} />
+          <Route path='review' element={<ManageReview />} />
+          <Route path='product' element={<ManageProduct />} />
+          <Route path='contact' element={<ManageContact />} />
         </Route>
         <Route path="/employee_home" element={<EmployeeHome />} />
         <Route path="/home" element={<CustomerHome />} />

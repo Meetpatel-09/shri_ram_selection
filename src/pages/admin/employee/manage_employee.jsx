@@ -1,6 +1,8 @@
 
 
 
-export default function ManageEmployee() {
-     return (<></>);
+const ManageEmployee = () => {
+     return (<><h1>Manage Employee</h1></>);
 }
+
+export default ManageEmployee;
