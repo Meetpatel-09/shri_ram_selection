@@ -9,7 +9,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './pages/auth/login';
 import Register from './pages/auth/register';
 // import AdminHome from './pages/admin/admin_home/admin_home';
-import EmployeeHome from './pages/employee/employee_home';
+// import EmployeeHome from './pages/employee/employee_home';
 import CustomerHome from './pages/customers/home/home';
 import Category from './pages/admin/category/category';
 import AdminLayout from './pages/admin/admin_layout';
@@ -38,7 +38,7 @@ function App() {
           <Route path='product' element={<ManageProduct />} />
           <Route path='contact' element={<ManageContact />} />
         </Route>
-        <Route path="/employee_home" element={<EmployeeHome />} />
+        {/* <Route path="/employee_home" element={<EmployeeHome />} /> */}
         <Route path="/home" element={<CustomerHome />} />
         <Route path="*" element={<NoPage />} />
 
