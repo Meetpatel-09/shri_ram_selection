@@ -271,6 +271,22 @@ export default function AdminHome() {
                       <td>5</td>
                       <td>₹2,245</td>
                     </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Men Regular Fit Solid Spread Collar Formal Shirt</td>
+                      <td>Casual</td>
+                      <td>₹749</td>
+                      <td>2</td>
+                      <td>₹1,245</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Men Regular Fit Solid Spread Collar Formal Shirt</td>
+                      <td>Suits</td>
+                      <td>₹4490</td>
+                      <td>3</td>
+                      <td>₹22,245</td>
+                    </tr>
                     {/*
                         <tr>
                             <td>Alvin Fisher</td>

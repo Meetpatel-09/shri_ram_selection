@@ -11,7 +11,7 @@ import Register from './pages/auth/register';
 // import AdminHome from './pages/admin/admin_home/admin_home';
 import EmployeeHome from './pages/employee/employee_home';
 import CustomerHome from './pages/customers/home/home';
-import Category from './pages/admin/category/categories/Category';
+import Category from './pages/admin/category/category';
 import AdminLayout from './pages/admin/admin_layout';
 import AdminHome from './pages/admin/admin_home/admin_home';
 import ManageCustomers from './pages/admin/customers/ManageCustomers';
@@ -20,6 +20,7 @@ import ManageProduct from './pages/admin/products/manage_product';
 import ManageReview from './pages/admin/review/ManageReviews';
 import ManageBanner from './pages/admin/banner/ManageBanners';
 import ManageContact from './pages/admin/contact/ManageContacts';
+import NoPage from './pages/NoPage';
 
 function App() {
   return (
@@ -39,7 +40,7 @@ function App() {
         </Route>
         <Route path="/employee_home" element={<EmployeeHome />} />
         <Route path="/home" element={<CustomerHome />} />
-
+        <Route path="*" element={<NoPage />} />
 
         {/* <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
