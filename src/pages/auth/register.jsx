@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 export default function Register() {
 
-  
   const [inputs, setInputs] = useState({});
 
   const handleChange = (event) => {
