@@ -1,19 +1,23 @@
 import { useEffect, useState } from "react";
 
-const ManageEmployee = () => {
-  const [data, setData] = useState(null);
-  const [dataAdded, setDataAdded] = useState(0);
+const ManageFeedback = () => {
 
-  const [inputs, setInputs] = useState({});
+     const [data, setData] = useState(null);
+     const [dataAdded, setDataAdded] = useState(0);
+   
+     const [inputs, setInputs] = useState({});
+   
+     const apiURL = "http://127.0.0.1:5000/feedback";
 
-  console.log(data);
-  const handleChange = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    setInputs((values) => ({ ...values, [name]: value }));
-  };
+     console.log(data);
+     const handleChange = (event) => {
+       const name = event.target.name;
+       const value = event.target.value;
+       setInputs((values) => ({ ...values, [name]: value }));
+     };
+   
 
-  // const handleSubmit = (event) => {
+ // const handleSubmit = (event) => {
   //   event.preventDefault();
   //   // alert(inputs.category_tittle);
   //   var myHeaders = new Headers();
@@ -31,7 +35,7 @@ const ManageEmployee = () => {
   //     redirect: "follow",
   //   };
 
-  //   fetch("http://127.0.0.1:5000/category", requestOptions)
+  //   fetch(apiURL, requestOptions)
   //     .then((response) => response.text())
   //     .then((result) => {
   //       console.log(result);
@@ -42,48 +46,50 @@ const ManageEmployee = () => {
   //     .catch((error) => console.log("error", error));
   // };
 
+
   useEffect(() => {
-    console.log("data");
-    fetch("http://127.0.0.1:5000/employee")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data['data']);
-        console.log(data['data'][0].first_name);
-        setData(data['data']);
-        // if (data["status"] === 201) {
-        // }
-      });
-  }, [dataAdded]);
+     console.log("data");
+     fetch(apiURL)
+       .then((res) => res.json())
+       .then((data) => {
+         console.log(data['data']);
+         console.log(data['data'][0]);
+         setData(data['data']);
+         // if (data["status"] === 201) {
+         // }
+       });
+   }, [dataAdded]);
+ 
 
   const deleteCategory = (id) => {
-    // alert(id);
-
-    console.log(id);
-    var myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    var raw = JSON.stringify({
-      category_id: id,
-    });
-
-    var requestOptions = {
-      method: "DELETE",
-      headers: myHeaders,
-      body: raw,
-      redirect: "follow",
-    };
-
-    fetch("http://127.0.0.1:5000/category", requestOptions)
-      .then((response) => response.text())
-      // .then(result => console.log(result))
-      .then((result) => {
-        console.log(result);
-        alert("Category Deleted.");
-        setInputs({});
-        setDataAdded(dataAdded - 1);
-      })
-      .catch((error) => console.log("error", error));
-  };
+     // alert(id);
+ 
+     console.log(id);
+     var myHeaders = new Headers();
+     myHeaders.append("Content-Type", "application/json");
+ 
+     var raw = JSON.stringify({
+       category_id: id,
+     });
+ 
+     var requestOptions = {
+       method: "DELETE",
+       headers: myHeaders,
+       body: raw,
+       redirect: "follow",
+     };
+ 
+     fetch(apiURL, requestOptions)
+       .then((response) => response.text())
+       // .then(result => console.log(result))
+       .then((result) => {
+         console.log(result);
+         alert("Category Deleted.");
+         setInputs({});
+         setDataAdded(dataAdded - 1);
+       })
+       .catch((error) => console.log("error", error));
+   };
 
   return (
     <>
@@ -92,14 +98,14 @@ const ManageEmployee = () => {
           <div className="d-flex justify-content-between flex-wrap">
             <div className="d-flex align-items-end flex-wrap">
               <div className="me-md-3 me-xl-5">
-                <h3>Manage Employee,</h3>
+                <h3>Manage Feedback,</h3>
                 {/* <p className="mb-md-0">Your analytics dashboard.</p> */}
                 <div className="d-flex">
                   <i className="mdi mdi-home text-muted hover-cursor"></i>
                   <p className="text-muted mb-0 hover-cursor">
                     &nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;
                   </p>
-                  <p className="text-primary mb-0 hover-cursor">Employee</p>
+                  <p className="text-primary mb-0 hover-cursor">Feedback</p>
                 </div>
               </div>
             </div>
@@ -116,24 +122,19 @@ const ManageEmployee = () => {
                   <thead>
                     <tr>
                       <th>#</th>
-                      <th>Employee Name</th>
-                      <th>Mobile</th>
-                      <th>Email</th>
-                      <th>Salary</th>
-                      <th>Actions</th>
+                      <th>Customer Name</th>
+                      <th>Feedback</th>
                     </tr>
                   </thead>
                   <tbody>
-                  {data &&
+                    {data &&
                       data.map((item, index) => {
                         return (
                           <tr>
                             <td>{index + 1}</td>
                             <td>{item.first_name + " " + item.last_name}</td>
-                            <td>{item.mobile_1}</td>
-                            <td>{item.email_id}</td>
-                            <td>{item.salary}</td>
-                            <td>
+                            <td>{item.feedback}</td>
+                            {/* <td>
                               <i
                                 role="button"
                                 className="cursor-pointer text-warning mdi mdi-border-color"
@@ -147,7 +148,7 @@ const ManageEmployee = () => {
                               >
                                 {" "}
                               </i>
-                            </td>
+                            </td> */}
                           </tr>
                         );
                       })}
@@ -162,4 +163,4 @@ const ManageEmployee = () => {
   );
 };
 
-export default ManageEmployee;
+export default ManageFeedback;

@@ -21,6 +21,7 @@ import ManageReview from './pages/admin/review/ManageReviews';
 import ManageBanner from './pages/admin/banner/ManageBanners';
 import ManageContact from './pages/admin/contact/ManageContacts';
 import NoPage from './pages/NoPage';
+import ManageFeedback from './pages/admin/feedback/manage_feedback';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
           <Route path='review' element={<ManageReview />} />
           <Route path='product' element={<ManageProduct />} />
           <Route path='contact' element={<ManageContact />} />
+          <Route path='feedback' element={<ManageFeedback />} />
         </Route>
         {/* <Route path="/employee_home" element={<EmployeeHome />} /> */}
         <Route path="/home" element={<CustomerHome />} />

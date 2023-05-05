@@ -474,6 +474,12 @@ const AdminLayout = () => {
           </Link>
         </li>
         <li className="nav-item">
+          <Link className="nav-link" to="feedback">
+            <i className="mdi mdi-gesture-double-tap menu-icon"></i>
+            <span className="menu-title">Feedback</span>
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link className="nav-link" to="review">
             <i className="mdi mdi-library menu-icon"></i>
             <span className="menu-title">Review</span>
