@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import useFetch from "./categories/useFetch";
-import { Link } from "react-router-dom";
 
 const Category = () => {
-  // const [data] = useFetch("http://127.0.0.1:5000/category");
   const [data, setData] = useState(null);
   const [dataAdded, setDataAdded] = useState(0);
+
+  const apiUrl = "http://127.0.0.1:5000/category"
 
   const [inputs, setInputs] = useState({});
 
@@ -34,7 +33,7 @@ const Category = () => {
       redirect: "follow",
     };
 
-    fetch("http://127.0.0.1:5000/category", requestOptions)
+    fetch(apiUrl, requestOptions)
       .then((response) => response.text())
       .then((result) => {
         console.log(result);
@@ -46,7 +45,7 @@ const Category = () => {
   };
 
   useEffect(() => {
-    fetch("http://127.0.0.1:5000/category")
+    fetch(apiUrl)
       .then((res) => res.json())
       .then((data) => {
         console.log("data");
@@ -75,7 +74,7 @@ const Category = () => {
       redirect: "follow",
     };
 
-    fetch("http://127.0.0.1:5000/category", requestOptions)
+    fetch(apiUrl, requestOptions)
       .then((response) => response.text())
       // .then(result => console.log(result))
       .then((result) => {

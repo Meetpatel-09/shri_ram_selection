@@ -44,7 +44,7 @@ const ManageReview = () => {
                           <td>1</td>
                           <td>Men Regular Fit Solid Spread Collar Formal Shirt</td>
                           <td>Formal</td>
-                          <td></td>
+                          {/* <td></td> */}
                           {/* <td>5</td>
                           <td>₹2,245</td> */}
                         </tr>
