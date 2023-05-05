@@ -468,6 +468,12 @@ const AdminLayout = () => {
           </Link>
         </li>
         <li className="nav-item">
+          <Link className="nav-link" to="order">
+            <i className="mdi mdi-package menu-icon"></i>
+            <span className="menu-title">Order</span>
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link className="nav-link" to="customer">
             <i className="mdi mdi-account-multiple menu-icon"></i>
             <span className="menu-title">Customer</span>

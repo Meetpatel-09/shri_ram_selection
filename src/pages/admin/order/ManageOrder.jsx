@@ -34,7 +34,7 @@ const ManageOrder = () => {
                  <thead>
                    <tr>
                      {/* <th>order_id</th> */}
-                     <th>product_id</th>
+                     <th>#</th>
                      {/* <th>customer_id</th> */}
                      <th>order_date</th>
                      <th>order_quantity</th>
@@ -48,8 +48,8 @@ const ManageOrder = () => {
                      <td>1</td>
                      <td>14/5/2023</td>
                      <td>2</td>
-                     <td>400₹</td>
-                     <td>SUCCESS</td>
+                     <td>₹400</td>
+                     <td>Packed</td>
                      {/* <td></td> */}
                    </tr>
                  </tbody>
